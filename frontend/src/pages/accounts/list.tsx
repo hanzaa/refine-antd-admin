@@ -25,7 +25,7 @@ export const AccountList: React.FC<IResourceComponentsProps> = () => {
                 <Table.Column
                     dataIndex={["email"]}
                     title="Email"
-                    render={(value: string) => <EmailField value={value} />}
+                    // render={(value: string) => <EmailField value={value} />}
                     width="100%"
                 />
                 <Table.Column dataIndex="password" title="Password" />
