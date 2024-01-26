@@ -1,0 +1,18 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model account {
+  id           Int       @id @default(autoincrement())
+  username     String?   @db.VarChar(64)
+  email        String?   @unique @db.VarChar(64)
+  password     String?
+  role         String?   @db.VarChar(16)
+  date_created String    @default(dbgenerated("TO_CHAR(NOW() :: DATE, 'YYYY-MM-DD')"))
+  time_created String    @default(dbgenerated("TO_CHAR(NOW() :: TIME, 'HH24:MI:SS')"))
+}
